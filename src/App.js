@@ -2,7 +2,7 @@
 import Navbar from './MyAppComponent.js/Navbar';
 import './App.css';
 import AppForm from './AppForm';
-import About from './MyAppComponent.js/About';
+// import About from './MyAppComponent.js/About';
 import React, { useState } from 'react'
 import Alert from './Alert';
 

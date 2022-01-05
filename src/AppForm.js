@@ -18,9 +18,7 @@ export default function AppForm(props) {
             props.showAlert('Text area has been clear' , 'success');       
         }
         const handleToCopy = () =>{
-            let newText = document.getElementById('myBox');
-            newText.select();
-            navigator.clipboard.writeText(newText.value);
+            navigator.clipboard.writeText(text);
             props.showAlert('Text has been copied' , 'success');       
         }
         
@@ -41,16 +39,16 @@ export default function AppForm(props) {
             <div className="mb-3" >
                 <textarea className="form-control" placeholder='Enter the text' value={text} onChange={handelOnChange} style={{backgroundColor: props.mode==='light'?'white':'#343434' , color: props.mode==='light'?'black':'white'}} id="myBox" rows="8"></textarea>
             </div>
-            <button className="btn btn-primary mx-1" onClick={handleToUpCase}>Convert to UpperCase</button>
-            <button className="btn btn-primary mx-1" onClick={handleToLoCase}>Convert to LowerCase</button>
-            <button className="btn btn-primary mx-1" onClick={handleToClear}>Clear All</button>
-            <button className="btn btn-primary mx-1" onClick={handleToCopy}>Copy to clipboard</button>
-            <button className="btn btn-primary mx-1" onClick={handleToRemoveExtraSpaces}>Remove Extra Spaces</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1" onClick={handleToUpCase}>Convert to UpperCase</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1" onClick={handleToLoCase}>Convert to LowerCase</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1" onClick={handleToClear}>Clear All</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1" onClick={handleToCopy}>Copy to clipboard</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1" onClick={handleToRemoveExtraSpaces}>Remove Extra Spaces</button>
     </div>
     <div className="container my-3" style={{color: props.mode==='light'?'#343434':'white'}}>
             <h1>Your text summary</h1>
-            <p>{text.split(" ").length} words</p>
-            <p>{0.008 * text.split(" ").length} minutes to read</p>
+            <p>{text.split(/\s+/).filter((element) => {return element.length!==0}).length} words</p>
+            <p>{0.008 * text.split(" ").filter((element) => {return element.length!==0}).length} minutes to read</p>
             <h2>Preview</h2>
             <p>{text.length >0?text:'Nothing to preview'}</p>
     </div>
