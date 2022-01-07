@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 
 export default function AppForm(props) {
         const handleToUpCase = () =>{
-            let newText = text.toLocaleUpperCase();
+            let newText = text.toUpperCase();
             setText(newText); 
             props.showAlert('Converted to Uppercase' , 'success');       
         }

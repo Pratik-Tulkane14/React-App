@@ -1,15 +1,9 @@
 import Navbar from './MyAppComponent.js/Navbar';
 import './App.css';
 import AppForm from './AppForm';
-import About from './MyAppComponent.js/About';
 import React, { useState } from 'react'
 import Alert from './Alert';
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
 
 function App() {
         const [mode, setMode] = useState('light');
@@ -39,22 +33,15 @@ function App() {
   }
   return (
     <>
-    <Router>
-        <Navbar title = "Pratik-Tech" nav1 = "Home" nav2 ="About" mode={mode}  toggleMode={toggleMode}/>
+    <div>
+        <Navbar title = "Pratik-Tech" nav1 = "Home"  mode={mode}  toggleMode={toggleMode}/>
         <Alert alert ={alert}/>
         <div className="container my-3">
-            <Routes>
-                <Route path="/about"
-                  element={<About />}>
-                </Route>
-                <Route path="/"
-                  element={<AppForm showAlert={showAlert} heading = "Enter the text " mode={mode} />}>
-                </Route>
-            </Routes>
-        </div>
-    </Router>
+                 <AppForm showAlert={showAlert} heading = "Enter the text " mode={mode} />
+       </div>   
+    </div>     
     </>
-  )
+  );
   }
 
 export default App;
