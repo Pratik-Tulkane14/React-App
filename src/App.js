@@ -34,7 +34,7 @@ function App() {
   return (
     <>
     <div>
-        <Navbar title = "Pratik-Tech" nav1 = "Home"  mode={mode}  toggleMode={toggleMode}/>
+        <Navbar title = "Text-Editor" nav1 = "Home"  mode={mode}  toggleMode={toggleMode}/>
         <Alert alert ={alert}/>
         <div className="container my-3">
                  <AppForm showAlert={showAlert} heading = "Enter the text " mode={mode} />

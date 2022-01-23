@@ -30,6 +30,6 @@ Navbar.propTypes ={title:PropTypes.string,
                     nav1:PropTypes.string,
                     nav2:PropTypes.string}
 Navbar.defaultProps ={
-    title:'defaultPratik',
-    nav1:'dafaultprops'
+    title:'Text-Editor',
+    nav1:'Home'
 };
